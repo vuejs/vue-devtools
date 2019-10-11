@@ -6,12 +6,14 @@ const path = require('path')
 const url = require('url')
 
 let mainWindow = null
+const defaultTitle = 'Vue Developer Tools'
 
 function createWindow () {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    icon: path.join(__dirname, 'icons/128.png')
+    icon: path.join(__dirname, 'icons/128.png'),
+    title: process.env.TITLE || defaultTitle
   })
 
   mainWindow.loadURL(url.format({

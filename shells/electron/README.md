@@ -130,6 +130,12 @@ if (window.location.protocol === 'file:') {
 
 This will only work on `development` build of your app.
 
+**5. How to change window title?**
+You can change it by setting environment variable before running it:
+```
+TITLE="My Vue Developer Tools" vue-devtools
+```
+
 ### :beers: Development
 
 1. Install all dependencies
