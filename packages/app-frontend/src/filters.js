@@ -52,7 +52,11 @@ export function formattedValue (value, quotes = true) {
   if ((result = specialTokenToString(value))) {
     return result
   } else if (type === 'custom') {
-    return value._custom.display
+    if (value._custom.type === 'map' && value._custom.value) {
+      return `Map[${value._custom.value.length}]`
+    } else {
+      return value._custom.display
+    }
   } else if (type === 'array') {
     return 'Array[' + value.length + ']'
   } else if (type === 'plain-object') {
