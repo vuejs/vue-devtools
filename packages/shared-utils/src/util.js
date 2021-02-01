@@ -184,7 +184,7 @@ function replacer (key) {
       return encodeCache.cache(val, () => getCustomRouterDetails(val))
     } else if (val._isVue) {
       return encodeCache.cache(val, () => getCustomInstanceDetails(val))
-    } else if (typeof val.render === 'function') {
+    } else if (typeof val.render === 'function' && getComponentName(val)) {
       return encodeCache.cache(val, () => getCustomComponentDefinitionDetails(val))
     } else if (val.constructor && val.constructor.name === 'VNode') {
       return `[native VNode <${val.tag}>]`
