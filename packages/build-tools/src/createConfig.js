@@ -12,6 +12,22 @@ exports.createConfig = (config, target = { chrome: 52, firefox: 48 }) => {
       modules: false
     }
   }
+  const babelOptions = {
+    presets: [
+      ['@babel/preset-env', {
+        corejs: 3,
+        targets: target,
+        useBuiltIns: 'usage'
+      }]
+    ],
+    plugins: [
+      ['@babel/plugin-transform-runtime', {
+        corejs: 3,
+        useESModules: true
+      }]
+    ],
+    sourceType: 'unambiguous'
+  }
 
   const baseConfig = {
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
@@ -28,9 +44,9 @@ exports.createConfig = (config, target = { chrome: 52, firefox: 48 }) => {
       rules: [
         {
           test: /\.js$/,
-          loader: 'buble-loader',
-          exclude: /node_modules|vue\/dist|vuex\/dist/,
-          options: bubleOptions
+          loader: 'babel-loader',
+          exclude: /node_modules(?!(\/|\\)(@vue-devtools|debug)(\/|\\))|vue\/dist|vuex\/dist/,
+          options: babelOptions
         },
         {
           test: /\.vue$/,
