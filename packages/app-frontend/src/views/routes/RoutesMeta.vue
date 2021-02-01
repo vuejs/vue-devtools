@@ -59,6 +59,9 @@ export default {
       if (routeData.name && routeData.name !== UNDEFINED) {
         data.name = routeData.name
       }
+      if (routeData.meta && !this.isEmptyObject(routeData.meta)) {
+        data.meta = routeData.meta
+      }
       if (routeData.component) {
         const component = {}
         // if (routeData.component.__file) {
