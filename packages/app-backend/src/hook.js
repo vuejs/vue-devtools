@@ -99,6 +99,10 @@ export function installHook (target) {
   hook.once('vuex:init', store => {
     hook.store = store
     hook.initialState = clone(store.state)
+    // fix store.replaceState cound be undefined
+    if (typeof store.replaceState !== 'function') {
+      store.replaceState = function () {}
+    }
     const origReplaceState = store.replaceState.bind(store)
     store.replaceState = state => {
       hook.initialState = clone(state)
