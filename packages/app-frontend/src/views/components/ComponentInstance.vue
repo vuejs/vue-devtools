@@ -233,7 +233,6 @@ export default {
 .self
   cursor pointer
   position relative
-  overflow hidden
   z-index 2
   border-radius 3px
   font-size 14px
