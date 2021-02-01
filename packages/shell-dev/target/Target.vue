@@ -1,22 +1,42 @@
 <template>
   <div id="target">
-    <h1>{{localMsg}} {{ msg }}</h1>
-    <span>Regex: {{regex.toString()}}</span>
-    <input @keyup.enter="regex = new RegExp($event.target.value)"/>
+    <h1>{{ localMsg }} {{ msg }}</h1>
+    <span>Regex: {{ regex.toString() }}</span>
+    <input @keyup.enter="regex = new RegExp($event.target.value)">
     <span>(Press enter to set)</span>
-    <br/>
-    <button class="add" @mouseup="add">Add 3</button>
-    <button class="remove" @mousedown="rm">Remove</button>
+    <br>
+    <button
+      class="add"
+      @mouseup="add"
+    >
+      Add 3
+    </button>
+    <button
+      class="remove"
+      @mousedown="rm"
+    >
+      Remove
+    </button>
     <input v-model="localMsg">
-    <other v-for="item in items" :key="item" :id="item" attr="some-attr"></other>
+    <other
+      v-for="item in items"
+      :id="item"
+      :key="item"
+      attr="some-attr"
+    />
     <div>
       <button
         class="inspect"
         @click="inspect"
         @mouseover="over = true"
         @mouseout="over = false"
-      >Inspect component</button>
-      <span v-if="over" class="over">Mouse over</span>
+      >
+        Inspect component
+      </button>
+      <span
+        v-if="over"
+        class="over"
+      >Mouse over</span>
     </div>
     <div>
       <Functional
@@ -53,6 +73,7 @@ export default {
     ins: MyClass
   },
   data () {
+    console.log('this.obj', this.obj)
     return {
       localMsg: this.msg,
       items: [1, 2],

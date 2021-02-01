@@ -13,7 +13,7 @@ export default {
       inited: state => state.inited
     })
   },
-  created() {
+  created () {
     this.$store.commit('TEST_INIT')
   }
 }

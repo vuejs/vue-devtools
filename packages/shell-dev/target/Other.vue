@@ -1,7 +1,7 @@
 <template>
   <div>
     Other {{ id }}
-    <mine/>
+    <mine />
   </div>
 </template>
 
@@ -17,25 +17,7 @@ const computedPropMixin = {
 }
 
 export default {
-  name: 'other-with-mine',
-  inheritAttrs: false,
-  mixins: [computedPropMixin],
-  provide: {
-    foo: 'bar',
-    noop: (a, b, c) => {},
-    answer: 42
-  },
-  props: ['id'],
-  data () {
-    const a = { c: function () {} }
-    a.a = a
-    const b = []
-    b[0] = b
-    return {
-      a: a,
-      b: b
-    }
-  },
+  name: 'OtherWithMine',
   components: {
     mine: {
       inject: ['foo', 'noop', 'answer'],
@@ -53,6 +35,29 @@ export default {
           h: 'I am a really long string mostly just to see how the horizontal scrolling works.'
         }
       }
+    }
+  },
+  mixins: [computedPropMixin],
+  inheritAttrs: false,
+  provide: {
+    foo: 'bar',
+    noop: (a, b, c) => {},
+    answer: 42
+  },
+  props: {
+    id: {
+      type: Number,
+      default: 0
+    }
+  },
+  data () {
+    const a = { c: function () {} }
+    a.a = a
+    const b = []
+    b[0] = b
+    return {
+      a: a,
+      b: b
     }
   }
 }

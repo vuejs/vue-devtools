@@ -1,13 +1,32 @@
 <template>
   <div>
-    <button class="btn-emit-event" @click="emitEvent">Emit</button>
-    <button class="btn-emit-event1" @click="emitEvent1">Emit</button>
-    <button class="btn-emit-event2" @click="emitEvent2">Emit</button>
+    <button
+      class="btn-emit-event"
+      @click="emitEvent"
+    >
+      Emit
+    </button>
+    <button
+      class="btn-emit-event1"
+      @click="emitEvent1"
+    >
+      Emit
+    </button>
+    <button
+      class="btn-emit-event2"
+      @click="emitEvent2"
+    >
+      Emit
+    </button>
 
     <br>
 
-    <button @click="emitManyEvents">Emit a lot of events</button>
-    <button @click="emitAndCommit">Emit and event and commit a mutation</button>
+    <button @click="emitManyEvents">
+      Emit a lot of events
+    </button>
+    <button @click="emitAndCommit">
+      Emit and event and commit a mutation
+    </button>
   </div>
 </template>
 

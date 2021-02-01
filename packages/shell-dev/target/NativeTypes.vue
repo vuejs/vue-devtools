@@ -98,6 +98,10 @@ export default {
     }
   },
 
+  filters: {
+    prototypeString: val => Object.prototype.toString.call(val)
+  },
+
   data () {
     return {
       localDate: new Date(),
@@ -184,10 +188,6 @@ export default {
     forceRefresh () {
       this.$forceUpdate()
     }
-  },
-
-  filters: {
-    prototypeString: val => Object.prototype.toString.call(val)
   }
 }
 </script>

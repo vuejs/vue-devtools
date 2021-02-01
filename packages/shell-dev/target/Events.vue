@@ -1,10 +1,19 @@
 <template>
   <div>
     <h1>Events</h1>
-    <event-child @event="log" @event-1="log" @event-2="log"></event-child>
-    <event-child-1 @log="log"></event-child-1>
-    <event-child-cond v-if="toggleCond" @log="log"></event-child-cond>
-    <button @click="toggleCond = !toggleCond">Toggle Cond</button>
+    <event-child
+      @event="log"
+      @event-1="log"
+      @event-2="log"
+    />
+    <event-child-1 @log="log" />
+    <event-child-cond
+      v-if="toggleCond"
+      @log="log"
+    />
+    <button @click="toggleCond = !toggleCond">
+      Toggle Cond
+    </button>
   </div>
 </template>
 

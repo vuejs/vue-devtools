@@ -1,6 +1,11 @@
 <template>
   <div>
-    <button class="btn-emit-log-event" @click="emitLogEvent">Emit</button>
+    <button
+      class="btn-emit-log-event"
+      @click="emitLogEvent"
+    >
+      Emit
+    </button>
   </div>
 </template>
 

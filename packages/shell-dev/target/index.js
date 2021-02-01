@@ -18,7 +18,7 @@ window.VUE_DEVTOOLS_CONFIG = {
 }
 
 const items = []
-for (var i = 0; i < 100; i++) {
+for (let i = 0; i < 100; i++) {
   items.push({ id: i })
 }
 

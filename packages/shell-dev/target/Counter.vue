@@ -124,6 +124,27 @@ export default {
   components: {
     NoProp
   },
+  computed: {
+    test () { return 1 },
+
+    ...mapState({
+      count: state => state.count
+    }),
+
+    ...mapState('nested', [
+      'foo'
+    ]),
+
+    ...mapGetters('nested', [
+      'twoFoos'
+    ])
+  },
+
+  watch: {
+    count (value) {
+      console.log('%ccount new value', 'font-weight: bold;', value)
+    }
+  },
 
   created () {
     // simulate firebase binding
@@ -146,26 +167,7 @@ export default {
     this.removeDynamicNestedModule()
     this.removeDynamicModule()
   },
-  computed: {
-    test () { return 1 },
 
-    ...mapState({
-      count: state => state.count
-    }),
-
-    ...mapState('nested', [
-      'foo'
-    ]),
-
-    ...mapGetters('nested', [
-      'twoFoos'
-    ])
-  },
-  watch: {
-    count (value) {
-      console.log('%ccount new value', 'font-weight: bold;', value)
-    }
-  },
   methods: {
     increment () {
       this.$store.commit('INCREMENT', { a: 1, b: { c: 3 } })
