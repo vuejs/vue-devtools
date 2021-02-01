@@ -17,6 +17,7 @@ function init () {
   overlay.style.alignItems = 'center'
   overlay.style.justifyContent = 'center'
   overlay.style.borderRadius = '3px'
+  overlay.style.maxWidth = '100vw'
   overlayContent = document.createElement('div')
   overlayContent.style.backgroundColor = 'rgba(104, 182, 255, 0.9)'
   overlayContent.style.fontFamily = 'monospace'
