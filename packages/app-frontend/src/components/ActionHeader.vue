@@ -35,6 +35,7 @@
     color #ccc
 
 .vue-ui-icon
+  min-width 16px
   width 16px
   height @width
   margin-right 0
