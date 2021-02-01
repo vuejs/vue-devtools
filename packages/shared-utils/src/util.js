@@ -390,6 +390,7 @@ function reviver (key, val) {
 function sanitize (data) {
   if (
     !isPrimitive(data) &&
+    !isPrimitiveWrapper(data) &&
     !Array.isArray(data) &&
     !isPlainObject(data)
   ) {
@@ -414,6 +415,17 @@ function isPrimitive (data) {
     type === 'string' ||
     type === 'number' ||
     type === 'boolean'
+  )
+}
+
+function isPrimitiveWrapper (data) {
+  if (data == null) {
+    return false
+  }
+  return (
+    data instanceof String ||
+    data instanceof Number ||
+    data instanceof Boolean
   )
 }
 
