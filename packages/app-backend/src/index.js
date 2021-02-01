@@ -228,8 +228,9 @@ function scan () {
     }
   }
 
-  if (isBrowser) {
-    walk(document, function (node) {
+  function walkNode (element) {
+    let elements = []
+    walk(element, function (node) {
       if (inFragment) {
         if (node === currentFragment._fragmentEnd) {
           inFragment = false
@@ -239,8 +240,22 @@ function scan () {
       }
       let instance = node.__vue__
 
-      return processInstance(instance)
+      const isVue = processInstance(instance)
+      if (isVue) {
+        // to find sub Vue instance
+        if (node.childNodes) {
+          elements.push(...node.childNodes)
+        }
+      }
+      return isVue
     })
+    if (elements.length) {
+      elements.forEach(walkNode)
+    }
+  }
+
+  if (isBrowser) {
+    walkNode(document)
   } else {
     if (Array.isArray(target.__VUE_ROOT_INSTANCES__)) {
       target.__VUE_ROOT_INSTANCES__.map(processInstance)
