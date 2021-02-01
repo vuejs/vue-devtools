@@ -372,6 +372,9 @@ function reviver (key, val) {
     return Symbol.for(string)
   } else if (specialTypeRE.test(val)) {
     const [, type, string] = specialTypeRE.exec(val)
+    if (!window[type]) {
+      return undefined
+    }
     return new window[type](string)
   } else {
     return val
