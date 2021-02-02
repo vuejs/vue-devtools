@@ -36,6 +36,7 @@
 
 .vue-ui-icon
   width 16px
+  min-width @width
   height @width
   margin-right 0
   @media (min-width: $wide)
