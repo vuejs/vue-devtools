@@ -401,6 +401,10 @@ export default {
       let key = this.field.key
       if (typeof key === 'string') {
         key = key.replace('__vue__', '')
+        // when there's spaces, add quotation marks
+        if (key.indexOf(' ') >= 0) {
+          key = `"${key}"`
+        }
       }
       return key
     }
