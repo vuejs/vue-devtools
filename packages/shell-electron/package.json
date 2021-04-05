@@ -34,6 +34,7 @@
     "@vue-devtools/app-frontend": "^0.0.0",
     "@vue-devtools/build-tools": "^0.0.0",
     "@vue-devtools/shared-utils": "^0.0.0",
+    "vue": "^2.6.12",
     "webpack": "^4.19.0",
     "webpack-cli": "^3.1.0"
   }
