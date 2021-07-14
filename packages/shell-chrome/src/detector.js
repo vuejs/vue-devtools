@@ -16,11 +16,12 @@ function detect (win) {
       let Vue
 
       if (window.$nuxt) {
-        Vue = window.$nuxt.$root.constructor
+        Vue = window.$nuxt.$root && window.$nuxt.$root.constructor
       }
 
       win.postMessage({
-        devtoolsEnabled: Vue && Vue.config.devtools,
+        // TODO disable devtools
+        devtoolsEnabled: !Vue || Vue.config.devtools,
         vueDetected: true,
         nuxtDetected: true
       }, '*')
