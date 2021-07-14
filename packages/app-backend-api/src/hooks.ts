@@ -52,7 +52,7 @@ export class DevtoolsHookable implements Hookable<BackendContext> {
         try {
           await handler(payload, ctx)
         } catch (e) {
-          console.error(`An error occured in hook ${eventType}${plugin ? ` registered by plugin ${plugin.descriptor.id}` : ''}`)
+          console.error(`An error occurred in hook ${eventType}${plugin ? ` registered by plugin ${plugin.descriptor.id}` : ''}`)
           console.error(e)
         }
       }
